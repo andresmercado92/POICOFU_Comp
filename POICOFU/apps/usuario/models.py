@@ -8,3 +8,4 @@ class Usuario(models.Model):
 	ciudad_origen= models.CharField(max_length= 50)
 	pais= models.CharField(max_length= 50)
 	lenguaje_preferencia= models.CharField(max_length= 50)
+	email= models.EmailField()

@@ -5,14 +5,14 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>POICOFU - Inicio</title>
+		<title>POICOFU - Registro Nuevo Usuario</title>
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">POICOFU</a>
+			<a class="navbar-brand" href="http://127.0.0.1:8000">POICOFU</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -25,9 +25,10 @@
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="modal" data-target="#modal-1">Iniciar sesión</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="user/registro/">Registrate</a>
-					</li> 					<li class="nav-item dropdown">
+					<!--<li class="nav-item">
+						<a class="nav-link" data-toggle="modal" data-target="#modal-2">Registrate</a>
+					</li> -->
+					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown06" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Diagramas</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown06">
 							<a class="dropdown-item" href="#">Diagrama de estados</a>
@@ -42,52 +43,15 @@
 			<div class="container" >
 				
 				<div class="jumbotron">
+					<div>
+						<h3 align="center">Crear cuenta</h3><br>
+					</div>
 					<div class="col-sm-8 mx-auto">
-						<h3>Requisitos funcionales - Plataforma Online de interpretación de Código Fuente. (POICOFU).</h3><br>
-
-						<h5>Presentado por:</h5>
-						<ul>
-							<li>Andres Mercado</li>
-							<li>Julian Rueda</li>
-						</ul>
-
-						<ol>
-							<li>
-								Para poder usar los servicios de la plataforma el usuario tiene dos opciones: Una de
-								las opciones es registrarse directamente en la plataforma. En este registro es
-								obligatorio escribir los nombres, los apellidos, edad, ciudad de origen,país y
-								lenguaje de preferencia. Una vez registrado el usuario puede modificar su
-								información o darse de baja en el sistema. La otra opción es usar la cuenta de
-								GMAIL. Para esto el sistema usa el servicio de autenticación de GMAIL quién es el
-								que verifica la existencia del usuario y permite el ingreso a la plataforma.
-							</li><br>
-							<li>
-								El sistema cuenta con un editor online donde el usuario escribe y compila los
-								programas en el lenguaje de programación ofrecido por la herramienta.
-							</li><br>
-							<li>
-								Este editor online permite guardar o persistir el código escrito en el disco duro del usuario y en la nube.
-							</li><br>
-							<li>
-								Una vez compilado se verifica sintaxis, el léxico del lenguaje que reconoce la
-								plataforma y se ejecuta el programa.
-							</li><br>
-							<li>
-								El editor cuenta con una herramienta llamada “Ir” que permite ubicarse en cualquier
-								parte del código.
-							</li><br>
-							<li>
-								El Sistema visualiza estadísticas de todos los usuarios por lenguaje de preferencia y por país en su página principal.
-							</li><br>
-							<li>
-								A cada usuario muestra el número de veces que ha compilado o interpretado los
-								programas escritos sobre la plataforma.
-							</li>
-						</ol><br><br><br>
-						<p>
-							Proyecto final para la asignatura Compiladores, Programa de Ingeniería de Sistemas <a href="http://www.unimagdalena.edu.co">Universidad del Magdalena</a>, 2018-1.
-						</p>
-		
+						<form method="post">
+							{% csrf_token %}
+							{{form.as_p}}
+							<button type="submit" class="btn btn-primary">Crear cuenta</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -106,22 +70,21 @@
 								<h4 class="modal-title">Inicio de sesión</h4>
 							</div>
 							<div class="modal-body">
-								<form method="post" >
-									{% csrf_token %}
+								<form>
 									<fieldset class="form-group">
-										<label for="username">Usuario</label>
-										<input type="text" class="form-control" placeholder="Username" name="username">
+										<label for="exampleInputEmail1">Correo electrónico</label>
+										<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese su correo electrónico">
+										<small class="text-muted"> Nunca compartiremos su correo electrónico con nadie más.</small>
 									</fieldset>
 									<fieldset class="form-group">
-										<label for="password">Contraseña</label>
-										<input type="password" class="form-control" placeholder="Ingrese su contraseña" name="password">
+										<label for="exampleInputPassword1">Contraseña</label>
+										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su contraseña">
 									</fieldset>
-									<button type="submit" class="btn btn-primary">Iniciar sesión</button>
 								</form>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-								
+								<button type="submit" class="btn btn-primary">Iniciar sesión</button>
 							</div>
 						</div><!-- /.modal-content -->
 					</div><!-- /.modal-dialog -->
